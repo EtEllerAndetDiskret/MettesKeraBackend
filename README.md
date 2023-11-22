@@ -1,6 +1,6 @@
 # README
 
-Hej Alexander er her
+Hej Alexander er mig
 
 ## The names of all members
 - Alexander Soltani
