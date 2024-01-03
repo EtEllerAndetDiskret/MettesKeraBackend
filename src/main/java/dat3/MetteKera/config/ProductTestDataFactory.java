@@ -6,18 +6,28 @@ import dat3.MetteKera.entity.Category;
 import dat3.MetteKera.entity.Product;
 import dat3.MetteKera.repository.CategoryRepository;
 import dat3.MetteKera.repository.ProductRepository;
+import dat3.security.entity.UserWithRoles;
+import dat3.security.repository.UserWithRolesRepository;
 
 import java.util.*;
 
 public class ProductTestDataFactory {
     CategoryRepository categoryRepository;
     ProductRepository productRepository;
-    public ProductTestDataFactory(CategoryRepository repository, ProductRepository productRepository) {
+
+    UserWithRolesRepository userWithRolesRepository;
+    public ProductTestDataFactory(CategoryRepository repository, ProductRepository productRepository, UserWithRolesRepository userWithRolesRepository) {
         this.categoryRepository = repository;
         this.productRepository = productRepository;
+        this.userWithRolesRepository = userWithRolesRepository;
     }
 
     public void generateTestProducts() {
+
+        UserWithRoles testUser1 = new UserWithRoles("USER", "test666", "alex@alex.alex");
+        UserWithRoles testUser2 = new UserWithRoles("ADMIN", "test666", "admin@admin.admin");
+        List<UserWithRoles> users = new ArrayList<>(List.of(testUser1, testUser2));
+        userWithRolesRepository.saveAll(users);
 
         Category gryder = new Category("Gryder");
         Category kander = new Category("Kander");

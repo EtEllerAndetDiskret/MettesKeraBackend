@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@JsonInclude(JsonInclude.Include.NON_NULL) //This is important since we can have to responses, one which includes all (detailed view) and one where only the info necessary for a product is sent.
+@JsonInclude(JsonInclude.Include.NON_NULL) //This is important since we can have two responses, one which includes all (detailed view) and one where only the info necessary for a product is sent.
 public class ProductResponse {
 
     int id;
